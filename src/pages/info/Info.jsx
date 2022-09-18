@@ -14,11 +14,9 @@ const Info = () => {
     try {
       const res = await getUserById(userId);
       const userData = res.data.data;
-      console.log(userData);
       if (userData) setUserInfo(userData);
       else setUserInfo(null);
     } catch (error) {
-      console.log("error", error);
       toast.error("somethig went wrong while fetching user!", notifySettings);
     }
   }, [userId]);
