@@ -19,7 +19,6 @@ import { notifySettings } from "../../../utils/config";
 
 const MessageForm = ({ visible, setVisible, phoneNo, name, picture }) => {
   const { messageState, messageDispatch } = useMessage();
-  console.log(messageState);
   const [otp, setOtp] = useState(Math.floor(100000 + Math.random() * 900000));
   const [formData, setFormData] = useState({
     sms: `Hi, your OTP is ${otp}\n`,
@@ -35,7 +34,6 @@ const MessageForm = ({ visible, setVisible, phoneNo, name, picture }) => {
   const handleSubmit = async (form) => {
     try {
       const res = await sendSms({ phoneNo: phoneNo, message: form.data.sms });
-      console.log(res);
       if (res.data.status) {
         submitHandler({
           messageDispatch,
@@ -50,7 +48,6 @@ const MessageForm = ({ visible, setVisible, phoneNo, name, picture }) => {
         });
       }
     } catch (error) {
-      console.log("error", error);
       toast.error("Somethig went wrong while sending sms!", notifySettings);
     }
   };

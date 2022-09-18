@@ -15,7 +15,6 @@ const Home = () => {
       if (userData.length) setUsers(userData);
       else setUsers([]);
     } catch (error) {
-      console.log("error", error);
       toast.error("somethig went wrong while fetching users!", notifySettings);
     }
   }, []);

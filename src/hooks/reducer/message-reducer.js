@@ -1,10 +1,9 @@
 const messageReducer = (state, action) => {
-  console.log("reducer", action.payload);
   switch (action.type) {
     case "GET_MESSAGE_ITEMS":
       return { ...state, message: action.payload };
     case "ADD_TO_MESSAGE":
-      return { ...state, message: [ action.payload, ...state.message] };
+      return { ...state, message: [action.payload, ...state.message] };
     case "EMPTY_MESSAGE":
       return { ...state, message: [] };
     default:
