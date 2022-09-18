@@ -18,7 +18,7 @@ import { toast } from "react-toastify";
 import { notifySettings } from "../../../utils/config";
 
 const MessageForm = ({ visible, setVisible, phoneNo, name, picture }) => {
-  const { messageState, messageDispatch } = useMessage();
+  const { messageDispatch } = useMessage();
   const [otp, setOtp] = useState(Math.floor(100000 + Math.random() * 900000));
   const [formData, setFormData] = useState({
     sms: `Hi, your OTP is ${otp}\n`,
